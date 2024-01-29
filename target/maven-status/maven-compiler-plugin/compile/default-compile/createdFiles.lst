@@ -1,0 +1,8 @@
+Pages\RecoveryPassword.class
+Helper\Helper.class
+Pages\RegisterPage.class
+Pages\LoginPage.class
+Pages\BasePage.class
+Pages\HomePage.class
+Pages\SearchPage.class
+Pages\WishlistPage.class
