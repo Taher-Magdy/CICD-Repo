@@ -37,7 +37,7 @@ pipeline {
             steps {
                 // Open Allure report in the default web browser
                 script {
-                    bat 'start cmd /c allure serve target\\allure-report'
+                    bat 'allure open target\\allure-report'
                 }
             }
         }
