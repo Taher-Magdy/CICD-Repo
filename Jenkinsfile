@@ -29,7 +29,6 @@ pipeline {
                 // Open Allure report in the default web browser
                 script {
                     bat 'allure open target\\allure-results'
-'
                 }
             }
         }
