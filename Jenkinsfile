@@ -29,16 +29,18 @@ pipeline {
                 script {
                     bat 'allure generate target/allure-results --clean -o target/allure-report'
                 }
+                
+ }
+        }
 
-                // Publish Allure report
-                allure([
-                    includeProperties: false,
-                    jdk: '',
-                    properties: [],
-                    reportBuildPolicy: 'ALWAYS',
-                    results: [[path: 'target/allure-results']]
-                ])
+        stage('Open Allure Report') {
+            steps {
+                // Open Allure report in the default web browser
+                script {
+                    bat 'allure open target\\allure-report'
+                }
             }
         }
+               
     }
   }
