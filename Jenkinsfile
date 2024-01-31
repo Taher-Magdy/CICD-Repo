@@ -23,10 +23,11 @@ pipeline {
                 }
             }
         }
-        stage('Generate Allure Report') {
-                    steps {
-                        script {
-                            sh 'allure generate target/allure-results --clean -o target/allure-report'
+        stage('Generate and Publish Allure Report') {
+            steps {
+                // Generate Allure report
+                script {
+                    sh 'allure generate target/allure-results --clean -o target/allure-report'
                 }
 
                 // Publish Allure report
@@ -35,9 +36,9 @@ pipeline {
                     jdk: '',
                     properties: [],
                     reportBuildPolicy: 'ALWAYS',
-                                    results: [[path: 'target/allure-results']]
-                                ])
-                            }
-                        }
-                    }
+                    results: [[path: 'target/allure-results']]
+                ])
+            }
+        }
     }
+  }
