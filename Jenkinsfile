@@ -23,14 +23,13 @@ pipeline {
                 }
             }
         }
-        
-        
 
         stage('Open Allure Report') {
             steps {
                 // Open Allure report in the default web browser
                 script {
-                    bat 'allure serve'
+                    bat 'bat 'allure open target\\allure-results'
+'
                 }
             }
         }
