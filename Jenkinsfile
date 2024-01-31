@@ -23,15 +23,8 @@ pipeline {
                 }
             }
         }
-        stage('Generate and Publish Allure Report') {
-            steps {
-                // Generate Allure report
-                script {
-                    bat 'allure generate target\\allure-results -o target\\allure-report'
-                }
-                
- }
-        }
+        
+        
 
         stage('Open Allure Report') {
             steps {
