@@ -27,7 +27,7 @@ pipeline {
             steps {
                 // Generate Allure report
                 script {
-                    sh 'allure generate target/allure-results --clean -o target/allure-report'
+                    bat 'allure generate target/allure-results --clean -o target/allure-report'
                 }
 
                 // Publish Allure report
