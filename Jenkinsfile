@@ -4,24 +4,39 @@ pipeline {
     stages {
         stage('Test') {
             steps {
+                // Run Maven clean and test
                 bat "mvn -D clean test"
+
+                // Generate Allure report
+                bat 'allure generate target/allure-results --clean -o target/allure-report'
+
+                // Publish Allure report
+                allure([
+                    includeProperties: false,
+                    jdk: '',
+                    properties: [],
+                    reportBuildPolicy: 'ALWAYS',
+                    results: [[path: 'target/allure-results']]
+                ])
             }
 
             post {
-                // If Maven was able to run the tests, even if some of the test
-                // failed, record the test results and archive the jar file.
                 success {
-                   publishHTML([
-                       allowMissing: false,
-                       alwaysLinkToLastBuild: false,
-                       keepAll: false,
-                       reportDir: 'target/surefire-reports/',
-                       reportFiles: 'emailable-report.html',
-                       reportName: 'HTML Report',
-                       reportTitles: '',
-                       useWrapperFileDirectly: true])
+                    // Archive HTML reports (if applicable)
+                    publishHTML([
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: false,
+                        keepAll: false,
+                        reportDir: 'target/surefire-reports/',
+                        reportFiles: 'emailable-report.html',
+                        reportName: 'HTML Report',
+                        reportTitles: '',
+                        useWrapperFileDirectly: true
+                    ])
                 }
             }
         }
+    }
+
     }
 }
