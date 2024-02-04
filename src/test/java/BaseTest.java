@@ -8,13 +8,20 @@ import com.aventstack.extentreports.markuputils.Markup;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.remote.Browser;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class BaseTest {
     protected WebDriver driver;
@@ -24,8 +31,28 @@ public class BaseTest {
     ExtentSparkReporter htmlReporter = new ExtentSparkReporter("extent.html");
     private static final Logger log = LogManager.getLogger(BaseTest.class);
 
+    @Parameters({"Browser"})
     @BeforeClass
     public void openDriver() throws InterruptedException {
+        // HuB-Node mode
+       /* if(Browser.equals("chrome")){
+        driver = WebDriverManager.chromiumdriver().remoteAddress("http://localhost:4444").create();}
+        else if(Browser.equals("edge")){
+        driver = WebDriverManager.edgedriver().remoteAddress("http://localhost:4444").create();}*/
+
+
+
+        // Standalone mode
+        /*String hubUrl = "http://192.168.1.109:4444";
+        if(Browser.equals("chrome")){
+        driver = WebDriverManager.chromiumdriver().remoteAddress(hubUrl).create();}
+        else if(Browser.equals("edge")){
+        driver = WebDriverManager.edgedriver().remoteAddress(hubUrl).create();}*/
+
+        // this is run success
+        /*capabilities.setCapability("browserName", "MicrosoftEdge");
+        driver = new RemoteWebDriver(new URL("http://192.168.80.1:4444"), capabilities);*/
+
         driver = new EdgeDriver();
         driver.manage().window().maximize();
         Thread.sleep(3000);
@@ -95,7 +122,6 @@ public class BaseTest {
 
     @AfterClass
     public void quitDriver() {
-
         driver.quit();
     }
 

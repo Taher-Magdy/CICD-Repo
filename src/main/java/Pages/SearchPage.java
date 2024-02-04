@@ -16,4 +16,8 @@ public class SearchPage extends BasePage{
         driver.findElement(By.cssSelector("button[class=\"button-1 search-box-button\"]")).click();
         return new SearchPage(driver);
     }
+    public ProductPage clickOnProduct(){
+        driver.findElement(By.cssSelector("div[class=\"product-item\"]")).click();
+        return new ProductPage(driver);
+    }
 }

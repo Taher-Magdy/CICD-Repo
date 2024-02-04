@@ -2,6 +2,10 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.io.IOException;
+import java.text.ParseException;
 
 
 public class LoginPage extends BasePage {
@@ -14,14 +18,17 @@ public class LoginPage extends BasePage {
     private By remember_me_ele = By.id("RememberMe");
     private By forgot_password_ele = By.className("forgot-password");
     private By wrong_message_ele = By.xpath("//*[@id=\"Email-error\"]");
+    private By message_ele = By.cssSelector("div[class=\"message-error validation-summary-errors\"]");
+    String Login_Data = "src/test/java/TestData/LoginData.json";
 
-    public LoginPage email(){
-
-        driver.findElement(emil_ele).sendKeys("tahermagdy90@gmail.com");
+    public LoginPage email() throws IOException, ParseException, org.json.simple.parser.ParseException {
+        String email = JsonReader.TestJson.getJson(Login_Data, "email");
+        driver.findElement(emil_ele).sendKeys(email);
         return this;
     }
-    public LoginPage password(){
-        driver.findElement(password_ele).sendKeys("P@sswOrd");
+    public LoginPage password() throws IOException, ParseException, org.json.simple.parser.ParseException {
+        String password = JsonReader.TestJson.getJson(Login_Data, "password");
+        driver.findElement(password_ele).sendKeys(password);
         return this;
     }
 
@@ -40,6 +47,9 @@ public class LoginPage extends BasePage {
     public LoginPage wrong_message(){
         driver.findElement(wrong_message_ele).sendKeys("tahermagdy90@gmail.com");
         return this;
+    }
+    public WebElement message(){
+        return driver.findElement(message_ele);
     }
   /*  public WebElement email(){
         return driver.findElement(emil_ele);

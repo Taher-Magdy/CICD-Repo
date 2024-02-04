@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Test') {
+        stage('Build Test') {
             steps {
                 bat "mvn -D clean test"
             }
@@ -23,19 +23,22 @@ pipeline {
                 }
             }
         }
-        stage('Generate Allure Report') {
-                    steps {
-                        script {
-                            ws('your project path') {
-                                allure([
-                                    includeProperties: false,
-                                    jdk: '',
-                                    properties: [],
-                                    reportBuildPolicy: 'ALWAYS',
-                                    results: [[path: 'allure-results']]
-                                ])
-                            }
-                        }
-                    }
+           stage('Generate Allure Report') {
+                steps {
+                  // Generate Allure report
+                  script {
+                      bat 'allure generate target\\allure-results --clean -o target\\allure-report'
+                }
+            }
+        }
+        stage('Open Allure Report') {
+            steps {
+                // Open Allure report in the default web browser
+                script {
+                    bat 'allure open target\\allure-report'
+                }
+            }
+        }
+
     }
-}
+  }

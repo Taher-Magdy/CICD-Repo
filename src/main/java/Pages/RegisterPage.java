@@ -5,8 +5,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.io.IOException;
+import java.text.ParseException;
+
 public class RegisterPage extends BasePage{
     Select select;
+    String Register_Data = "src/test/java/TestData/RegisterData.json";
     public RegisterPage(WebDriver driver) {
         super(driver);
     }
@@ -26,15 +30,18 @@ public class RegisterPage extends BasePage{
     private By continueBtn_ele =  By.className("button-1");
 
     public RegisterPage gender(){
+
         driver.findElement(gender_male_ele).click(); ;
         return this;
     }
-    public RegisterPage firstName(){
-        driver.findElement(firstName_ele).sendKeys("Taher");
+    public RegisterPage firstName() throws IOException, ParseException, org.json.simple.parser.ParseException {
+        String firstName = JsonReader.TestJson.getJson(Register_Data, "firstName");
+        driver.findElement(firstName_ele).sendKeys(firstName);
         return this;
     }
-    public RegisterPage lastName(){
-        driver.findElement(lastName_ele).sendKeys("Magdy"); ;
+    public RegisterPage lastName() throws IOException, ParseException, org.json.simple.parser.ParseException {
+        String lastName = JsonReader.TestJson.getJson(Register_Data, "lastName");
+        driver.findElement(lastName_ele).sendKeys(lastName);
         return this;
     }
     public RegisterPage dateOfBirthDay(){
@@ -52,20 +59,23 @@ public class RegisterPage extends BasePage{
         select.selectByValue("1998");
         return this;
     }
-    public RegisterPage email(){
-        driver.findElement(email_ele).sendKeys("tahermagdy13@gmail.com");
+    public RegisterPage email() throws IOException, ParseException, org.json.simple.parser.ParseException {
+        String email = JsonReader.TestJson.getJson(Register_Data, "email");
+        driver.findElement(email_ele).sendKeys(email);
         return this;
     }
     public RegisterPage company(){
         driver.findElement(company_ele).sendKeys("T_M") ;
         return this;
     }
-    public RegisterPage password(){
-        driver.findElement(password_ele).sendKeys("P@sswOrd");
+    public RegisterPage password() throws IOException, ParseException, org.json.simple.parser.ParseException {
+        String password = JsonReader.TestJson.getJson(Register_Data, "password");
+        driver.findElement(password_ele).sendKeys(password);
         return this;
     }
-    public RegisterPage confirmPassword(){
-        driver.findElement(confirmPassword_ele).sendKeys("P@sswOrd") ;
+    public RegisterPage confirmPassword() throws IOException, ParseException, org.json.simple.parser.ParseException {
+        String password = JsonReader.TestJson.getJson(Register_Data, "password");
+        driver.findElement(password_ele).sendKeys(password);
         return this;
     }
 
