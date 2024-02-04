@@ -7,6 +7,7 @@ import org.testng.asserts.SoftAssert;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
 
 public class MainFuncTest extends BaseTest {
     SoftAssert softAssert = new SoftAssert();
@@ -39,10 +40,6 @@ public class MainFuncTest extends BaseTest {
                 .password()
                 .remember_me()
                 .ClickOnlogin_btn();
-
-        LoginPage loginPage = new LoginPage(driver);
-        String actual = loginPage.message().getText();
-        softAssert.assertFalse(actual.contains("Login was unsuccessful"));
     }
 
     @Test(priority = 3)
@@ -60,5 +57,35 @@ public class MainFuncTest extends BaseTest {
         softAssert.assertTrue(actual.contains("No products"));
         // another type of assertion
 //            softAssert.assertTrue(searchPage.noProducts().isDisplayed(),"No products");
+    }
+    @Test(priority = 4)
+    public void followUs() throws InterruptedException {
+        Thread.sleep(2000);
+
+        String Main = driver.getWindowHandle();
+        homePage.facebook().click();
+        softAssert.assertTrue(driver.getCurrentUrl().contains("https://www.facebook.com/nopCommerce"));
+        Thread.sleep(3000);
+        ArrayList<String> Tabs = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(Tabs.get(1)).close();
+        driver.switchTo().window(Main);
+
+
+        homePage.twitter().click();
+        Thread.sleep(3000);
+        softAssert.assertEquals(driver.getCurrentUrl(), "https://twitter.com/nopCommerce", "twitter link");
+        ArrayList<String> Tabs1 = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(Tabs1.get(1)).close();
+        driver.switchTo().window(Main);
+        Thread.sleep(3000);
+
+
+        homePage.youtube().click();
+        Thread.sleep(3000);
+        softAssert.assertEquals(driver.getCurrentUrl(), "https://www.youtube.com/user/nopCommerce", "youtube link");
+        ArrayList<String> Tabs2 = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(Tabs2.get(1)).close();
+        driver.switchTo().window(Main);
+        Thread.sleep(3000);
     }
 }

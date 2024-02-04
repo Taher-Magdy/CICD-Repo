@@ -1,11 +1,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="MyTestSuite" parallel="tests">
+<suite name="MyTestSuite">
 
-    <test thread-count="3" name="chromeTest" >
-        <parameter name="Browser" value="chrome" />
+    <test name="edgeTest" >
+        <parameter name="Browser" value="edge" />
         <classes>
             <class name="MainFuncTest" />
+            <class name="E2ETest"/>
         </classes>
     </test>
 

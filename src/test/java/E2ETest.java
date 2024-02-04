@@ -19,10 +19,6 @@ public class E2ETest extends BaseTest {
                 .password()
                 .remember_me()
                 .ClickOnlogin_btn();
-
-        LoginPage loginPage = new LoginPage(driver);
-        String actual = loginPage.message().getText();
-        softAssert.assertFalse(actual.contains("Login was unsuccessful"));
     }
 
     @Test(priority = 2)

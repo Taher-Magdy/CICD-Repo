@@ -75,7 +75,7 @@ public class RegisterPage extends BasePage{
     }
     public RegisterPage confirmPassword() throws IOException, ParseException, org.json.simple.parser.ParseException {
         String password = JsonReader.TestJson.getJson(Register_Data, "password");
-        driver.findElement(password_ele).sendKeys(password);
+        driver.findElement(confirmPassword_ele).sendKeys(password);
         return this;
     }
 

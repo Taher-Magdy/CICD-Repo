@@ -55,7 +55,6 @@ public class BaseTest {
 
         driver = new EdgeDriver();
         driver.manage().window().maximize();
-        Thread.sleep(3000);
         driver.navigate().to("https://demo.nopcommerce.com/");
         homePage = new HomePage(driver);
     }
