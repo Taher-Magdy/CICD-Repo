@@ -82,16 +82,16 @@ public class RegisterPage extends BasePage{
         driver.findElement(registerBtn_ele).click();
         return new HomePage(driver);
     }
-
+    public WebElement result(){
+        return driver.findElement(result_ele);
+    }
 
    /* public Pages.HomePage navigateBackToHomePage() {
         driver.navigate().to("https://demo.nopcommerce.com/");
        return new Pages.HomePage(driver);
     }
 */
-    public WebElement result(){
-        return driver.findElement(result_ele);
-    }
+
 
 
    /* public WebElement gender_male(){

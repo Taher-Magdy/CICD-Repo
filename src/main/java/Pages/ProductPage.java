@@ -24,7 +24,6 @@ public class ProductPage extends BasePage {
         driver.findElement(ClearBTN).sendKeys("2");
         return this;
     }
-
     public ProductPage wishlist_btn(){
         driver.findElement(wishlist_btn_element).click();
         return this;

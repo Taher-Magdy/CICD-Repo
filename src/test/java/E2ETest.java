@@ -21,7 +21,7 @@ public class E2ETest extends BaseTest {
                 .ClickOnlogin_btn();
     }
     @Test(priority = 2)
-    public void Search() {
+    public void Search(){
         // valid search
         new HomePage(driver)
                 .validsearch();

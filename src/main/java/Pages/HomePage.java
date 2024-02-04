@@ -12,7 +12,6 @@ public class HomePage extends BasePage {
     public HomePage(WebDriver driver) {
         super(driver);
     }
-
     public LoginPage ClickOnloginButton() {
         driver.findElement(By.cssSelector("a[class=\"ico-login\"]")).click();
         return new LoginPage(driver);

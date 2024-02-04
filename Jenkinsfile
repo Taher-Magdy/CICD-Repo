@@ -23,6 +23,7 @@ pipeline {
                 }
             }
         }
+
            stage('Generate Allure Report') {
                 steps {
                   // Generate Allure report

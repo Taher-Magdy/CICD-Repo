@@ -26,11 +26,13 @@ public class LoginPage extends BasePage {
         driver.findElement(emil_ele).sendKeys(email);
         return this;
     }
+
     public LoginPage password() throws IOException, ParseException, org.json.simple.parser.ParseException {
         String password = JsonReader.TestJson.getJson(Login_Data, "password");
         driver.findElement(password_ele).sendKeys(password);
         return this;
     }
+
     public LoginPage ClickOnlogin_btn(){
         driver.findElement(login_ele).click();
         return this;

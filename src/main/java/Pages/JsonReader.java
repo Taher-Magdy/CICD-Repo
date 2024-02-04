@@ -14,5 +14,4 @@ public class JsonReader {
             return (String) jsonObject.get(key);
         }
     }
-
 }
