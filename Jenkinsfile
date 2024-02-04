@@ -30,7 +30,7 @@ pipeline {
                       bat 'allure generate target\\allure-results --clean -o target\\allure-report'
                 }
             }
-        }
+
         stage('Open Allure Report') {
             steps {
                 // Open Allure report in the default web browser
@@ -39,6 +39,7 @@ pipeline {
                 }
             }
         }
+
 
     }
   }
