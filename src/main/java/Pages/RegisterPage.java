@@ -30,7 +30,6 @@ public class RegisterPage extends BasePage{
     private By continueBtn_ele =  By.className("button-1");
 
     public RegisterPage gender(){
-
         driver.findElement(gender_male_ele).click(); ;
         return this;
     }
@@ -88,7 +87,6 @@ public class RegisterPage extends BasePage{
        return new Pages.HomePage(driver);
     }
 */
-
     public WebElement result(){
         return driver.findElement(result_ele);
     }

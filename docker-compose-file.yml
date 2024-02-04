@@ -12,7 +12,6 @@ services:
 
 
 
-
   edge:
     image: selenium/node-edge:4.7.2-20221219
     shm_size: 2gb

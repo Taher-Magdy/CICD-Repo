@@ -20,7 +20,6 @@ public class E2ETest extends BaseTest {
                 .remember_me()
                 .ClickOnlogin_btn();
     }
-
     @Test(priority = 2)
     public void Search() {
         // valid search

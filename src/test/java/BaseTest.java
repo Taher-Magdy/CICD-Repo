@@ -40,8 +40,6 @@ public class BaseTest {
         else if(Browser.equals("edge")){
         driver = WebDriverManager.edgedriver().remoteAddress("http://localhost:4444").create();}*/
 
-
-
         // Standalone mode
         /*String hubUrl = "http://192.168.1.109:4444";
         if(Browser.equals("chrome")){
@@ -97,7 +95,8 @@ public class BaseTest {
             Markup m = MarkupHelper.createLabel(logText, ExtentColor.RED);
             logger.log(Status.FAIL, m);
 
-        } else if (result.getStatus() == ITestResult.SKIP) {
+        }
+        else if (result.getStatus() == ITestResult.SKIP) {
             logger.log(Status.SKIP, "Test Skipped");
             String MethodName = result.getMethod().getMethodName();
             String logText = "Test Case: " + MethodName + "Skipped";

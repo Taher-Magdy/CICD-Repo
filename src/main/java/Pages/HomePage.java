@@ -12,14 +12,6 @@ public class HomePage extends BasePage {
     public HomePage(WebDriver driver) {
         super(driver);
     }
-    /*public WebElement register(){
-
-        return  driver.findElement(By.className("ico-register"));
-    }*/
-    public WebElement login() {
-        return driver.findElement(By.cssSelector("a[class=\"ico-login\"]"));
-    }
-
 
     public LoginPage ClickOnloginButton() {
         driver.findElement(By.cssSelector("a[class=\"ico-login\"]")).click();
@@ -29,30 +21,31 @@ public class HomePage extends BasePage {
         driver.findElement(By.className("ico-register")).click();
         return new RegisterPage(driver);
     }
+       public SearchPage validsearch(){
+        driver.findElement(By.id("small-searchterms")).sendKeys("Apple");
+        driver.findElement(By.cssSelector("button[class=\"button-1 search-box-button\"]")).click();
+        driver.manage().timeouts().implicitlyWait(10, java.util.concurrent.TimeUnit.SECONDS);
+        return new SearchPage(driver);
+    }
+    public WebElement facebook() {
+        return driver.findElement(By.className("facebook"));
+    }
+    public WebElement twitter() {
+        return driver.findElement(By.className("twitter"));
+    }
+    public WebElement youtube() {
+        return driver.findElement(By.xpath("/html/body/div[6]/div[4]/div[1]/div[4]/div[1]/ul/li[4]/a"));
+    }
     public WebElement currency(){
         return driver.findElement(By.className("currency-selector"));
     }
     /*    public List<WebElement> sign(){
             return driver.findElement(By.xpath("(//div[@class='prices'])[1]"));
         }*/
-
-
     public WebElement sign(){
         return driver.findElement(By.xpath("(//div[@class='prices'])[1]"));
     }
-    public WebElement searchBar(){
-        return driver.findElement(By.id("small-searchterms"));
-    }
-    public SearchPage validsearch(){
-        driver.findElement(By.id("small-searchterms")).sendKeys("Apple");
-        driver.findElement(By.cssSelector("button[class=\"button-1 search-box-button\"]")).click();
-        driver.manage().timeouts().implicitlyWait(10, java.util.concurrent.TimeUnit.SECONDS);
-        return new SearchPage(driver);
-    }
 
-    public WebElement searchButton(){
-        return driver.findElement(By.cssSelector("button[class=\"button-1 search-box-button\"]"));
-    }
 
     /* public WebElement categoryList(){
          return driver.findElement(By.cssSelector("div[class=\"page-title\"]"));
@@ -69,16 +62,7 @@ public class HomePage extends BasePage {
     public WebElement slider(String sliderNum){
         return driver.findElement(By.xpath("(//a[@href=\"http://demo.nopcommerce.com/\"])["+sliderNum+"]"));
     }
-    public WebElement facebook() {
-        return driver.findElement(By.className("facebook"));
-    }
-    public WebElement twitter() {
-        return driver.findElement(By.className("twitter"));
-    }
 
-    public WebElement youtube() {
-        return driver.findElement(By.xpath("/html/body/div[6]/div[4]/div[1]/div[4]/div[1]/ul/li[4]/a"));
-    }
     public WebElement wishList() {
         return driver.findElement(By.cssSelector("div[class=\"header-links\"] [href=\"/wishlist\"]"));
     }

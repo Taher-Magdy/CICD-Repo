@@ -25,31 +25,4 @@ public class Helper {
             System.out.println("Exception while taking screenshot"+e.getMessage());
         }
     }
-
-   /* public static void captureScreenshot(WebDriver driver, String screenshotName) {
-        try {
-            if (driver instanceof TakesScreenshot) {
-                TakesScreenshot ts = (TakesScreenshot) driver;
-                File source = ts.getScreenshotAs(OutputType.FILE);
-
-                // Adding timestamp to make the screenshot name unique
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss");
-                String timestamp = dateFormat.format(new Date());
-
-                // Creating the directory if it doesn't exist
-                File directory = new File("./ScreenShots/");
-                if (!directory.exists()) {
-                    directory.mkdirs();
-                }
-
-                File destination = new File(directory, screenshotName + "_" + timestamp + ".png");
-                FileUtils.copyFile(source, destination);
-                System.out.println("Screenshot taken: " + destination.getAbsolutePath());
-            } else {
-                System.out.println("Driver does not support screenshots");
-            }
-        } catch (Exception e) {
-            System.out.println("Exception while taking screenshot: " + e.getMessage());
-        }
-    }*/
 }
