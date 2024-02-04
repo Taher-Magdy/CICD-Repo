@@ -82,6 +82,8 @@ public class RegisterPage extends BasePage{
         driver.findElement(registerBtn_ele).click();
         return new HomePage(driver);
     }
+
+
    /* public Pages.HomePage navigateBackToHomePage() {
         driver.navigate().to("https://demo.nopcommerce.com/");
        return new Pages.HomePage(driver);

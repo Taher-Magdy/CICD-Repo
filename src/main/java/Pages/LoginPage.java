@@ -31,7 +31,6 @@ public class LoginPage extends BasePage {
         driver.findElement(password_ele).sendKeys(password);
         return this;
     }
-
     public LoginPage ClickOnlogin_btn(){
         driver.findElement(login_ele).click();
         return this;

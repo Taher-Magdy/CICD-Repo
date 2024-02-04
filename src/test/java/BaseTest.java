@@ -117,7 +117,6 @@ public class BaseTest {
         extent.flush();
         log.info("Tearing down test Method");
     }
-
     @AfterClass
     public void quitDriver() {
         driver.quit();

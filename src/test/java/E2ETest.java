@@ -27,7 +27,6 @@ public class E2ETest extends BaseTest {
                 .validsearch();
         softAssert.assertTrue(driver.getCurrentUrl().contains("https://demo.nopcommerce.com/search?q=Apple"), "search URL");
     }
-
     @Test(priority = 3)
     public void Product_chart() {
         new SearchPage(driver)

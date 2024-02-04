@@ -36,6 +36,7 @@ public class HomePage extends BasePage {
     public WebElement youtube() {
         return driver.findElement(By.xpath("/html/body/div[6]/div[4]/div[1]/div[4]/div[1]/ul/li[4]/a"));
     }
+
     public WebElement currency(){
         return driver.findElement(By.className("currency-selector"));
     }
