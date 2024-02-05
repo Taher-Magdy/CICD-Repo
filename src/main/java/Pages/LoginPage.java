@@ -61,6 +61,7 @@ public class LoginPage extends BasePage {
     public WebElement login_btn(){
         return driver.findElement(login_ele);
     }
+
     public WebElement remember_me(){
         return driver.findElement(remember_me_ele);
     }

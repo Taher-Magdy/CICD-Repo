@@ -32,6 +32,7 @@ public class MainFuncTest extends BaseTest {
         String actual = registerPage.result().getText();
         softAssert.assertTrue(actual.contains("Your registration completed"));
     }
+
     @Test( priority = 2)
     public void valid_login() throws IOException, ParseException, org.json.simple.parser.ParseException {
         new HomePage(driver)

@@ -53,6 +53,7 @@ public class HomePage extends BasePage {
     public WebElement desktopInPage(){
         return driver.findElement(By.xpath("/html/body/div[6]/div[3]/div/div[3]/div/div[1]/h1"));
     }
+
     public WebElement computers(){
         return driver.findElement(By.cssSelector("ul[class=\"top-menu notmobile\"] [href=\"/computers\"]"));
     }

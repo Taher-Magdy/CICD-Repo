@@ -77,7 +77,6 @@ public class RegisterPage extends BasePage{
         driver.findElement(confirmPassword_ele).sendKeys(password);
         return this;
     }
-
     public HomePage registerBtn(){
         driver.findElement(registerBtn_ele).click();
         return new HomePage(driver);

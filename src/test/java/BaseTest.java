@@ -56,7 +56,6 @@ public class BaseTest {
         driver.navigate().to("https://demo.nopcommerce.com/");
         homePage = new HomePage(driver);
     }
-
     @BeforeTest
     public void beforeTestMethod() {
         htmlReporter = new ExtentSparkReporter(System.getProperty("user.dir") + File.separator + "Reports" + File.separator + "extent.html");

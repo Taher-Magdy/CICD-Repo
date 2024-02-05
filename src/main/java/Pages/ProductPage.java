@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 
 public class ProductPage extends BasePage {
     private By ClearBTN = By.cssSelector("#product_enteredQuantity_4");
-    private By table =By.className("compare-products-table");
     private By wishlist_btn_element  = By.id("add-to-wishlist-button-4");
     private By AddToCartBTN = By.id("add-to-cart-button-4");
     private By added_to_cart = By.cssSelector("div[class=\"bar-notification success\"]");
